@@ -1,0 +1,62 @@
+{
+    "family": "user_server_task_definition",
+    "containerDefinitions": [
+        {
+            "name": "user_server_container",
+            "image": "477644685304.dkr.ecr.ap-northeast-2.amazonaws.com/user_server_ecr:7f44a5ff55eb93970e9e5c1d01fc37a06c5e45b3",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "user_server_container-9000-tcp",
+                    "containerPort": 9000,
+                    "hostPort": 9000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "secrets": [
+                {
+                    "name": "MYSQL_HOST",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:477644685304:secret:mysql_env-atY20C:MYSQL_HOST::"
+                },
+                {
+                    "name": "MYSQL_USER",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:477644685304:secret:mysql_env-atY20C:MYSQL_USER::"
+                },
+                {
+                    "name": "MYSQL_PASSWORD",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:477644685304:secret:mysql_env-atY20C:MYSQL_PASSWORD::"
+                },
+                {
+                    "name": "MYSQL_DB",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:477644685304:secret:mysql_env-atY20C:MYSQL_DB::"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/user_server_task_definition",
+                    "awslogs-region": "ap-northeast-2",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::477644685304:role/ecsIAM",
+    "executionRoleArn": "arn:aws:iam::477644685304:role/ecsIAM",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    }
+}
