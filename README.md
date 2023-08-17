@@ -61,6 +61,32 @@
 >    - DynamoDB : Write Capacity Utilization, Read Capacity Utilization
 <br>
 
+## 🙋‍♀️ 나의 역할
+- RDS MySQL, DynamoDB를 사용한 데이터베이스 구현
+    - 데이터베이스를 구성하고 테이블과 테스트 데이터를 만들었다. 
+      ![image](https://github.com/parknahye/mrmrthon/assets/127065825/635b444c-0c51-4bc6-a932-4bfd70d16a14)
+
+- DynamoDB 연동  Rest API 개발
+    - aws-sdk 를 사용하여 DynamoDB 연동하였다.
+    - 기능별 다양한 CRUD API를 개발하였다
+    - api list
+
+      ![image](https://github.com/parknahye/mrmrthon/assets/127065825/4242ed5e-dd0b-476b-a995-0053923f5a43)
+
+- official_record_lamda 람다 함수 구현
+    - DynamoDB을 트리거로 하여 테이블인 official_record 테이블에 데이터가 insert 가 되면 sqs를 통하여 point_increase_lamda 람다로 값을 전달하도록 느슨한 결합으로 구현하였다.
+
+- 웹훅 구현
+    - sns를 사용하여 웹훅을 만들어 디스코드로 알림 메시지가 오도록 개발하였다.
+      ![image](https://github.com/parknahye/mrmrthon/assets/127065825/b298664e-a2d9-4d06-81c6-0767d39c66a9)
+      
+- 모니터링 시스템 구현
+    - AWS Cloud Watch 의 서비스를 Grafana로 import 하여 구현하였다.
+      ![image](https://github.com/parknahye/mrmrthon/assets/127065825/ff3aa59a-8cc1-4744-ab73-31a98f52d8fe)
+
+- IaC 작성
+    - 테라폼 코드로 IaC를 작성하여 인프라 개발을 간편하게 만들었다.
+
 ## 🏃‍♀️ Install Dependencies
 
 ```
