@@ -6,7 +6,7 @@
 ![fian_diagram](https://github.com/cs-devops-bootcamp/devops-04-Final-Team2/assets/126468493/1810e67b-7339-4ee7-b6b8-ba21218f0ecc)<br>
 > 1. 개발자가 새로운 버전을 릴리즈하면 Github Action을 통해 자동화가되어 진행됩니다. S3에 정적 웹페이지 파일 업로드, ECR 이미지 Push, 새 태스크 정의 생성, ECS 서비스 업데이트, 람다 함수 배포가 포함됩니다.
 > 2. 각 서비스의 CloudWatch지표를 매트릭으로하여 Grafana Dashboard에 표시됩니다.
-> 3. 사용자가 Roue53을 통해 도메인으로 접속하면 CloudFront를 통해 S3에 업로드된 정적 웹페이지가 나타납니다.
+> 3. 사용자가 Route53을 통해 도메인으로 접속하면 CloudFront를 통해 S3에 업로드된 정적 웹페이지가 나타납니다.
 > 4. User서버에 api요청을 보내 CRUD작업을 처리합니다. 해당 작업에 대한 결과로 user_db에 접속하여 값을 사용합니다. 그 중 로그인 작업에 성공하면 토큰을 발급합니다.
 > 5. Header에 토큰을 포함하여 Main 서버에 api요청을 보내 CRUD작업을 처리합니다. 해당 작업에 대한 결과로 main_db와 user_db에 접속하여 값을 사용합니다. 각 작업에 따라 토큰 값이 사용됩니다.
 > 6. main_db의 official_record 테이블에 값이 추가되면, 이를 트리거로 official_record_lambda가 작동합니다. 해당 람다는 추가된 값에 대한 내용을 SNS로 전달합니다.
